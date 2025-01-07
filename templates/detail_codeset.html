@@ -1,0 +1,27 @@
+<h2>{{ codeset.title }}</h2>
+
+
+<p>{{ codeset.description }}</p>
+
+
+<p>{{ codeset.created_at }}</p>
+
+
+<div>
+
+  {% for attachment in codeset.files_attached_to_c.all %}
+  <p>Turi: {{ attachment.file_type }}</p>
+  <p>
+    {% if attachment.file_type == "github" %}
+      {{ attachment.github_url }}
+    {% elif attachment.file_type == "text" %}
+      {{ attachment.text }}
+    {% elif attachment.file_type == "file" %}
+      <iframe style="border: 0;" src="{{ attachment.file.url }}"></iframe>
+    {% else %}
+      Hech qanday kontent yuklanmagan
+    {% endif %}
+  {% endfor %}
+
+</div>
+

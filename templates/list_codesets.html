@@ -1,0 +1,12 @@
+
+{% for codeset in codesets %}
+
+<li>"{{ codeset.title }}" includes {{ codeset.files_attached_to_c.count }} attachments
+  <br />
+  
+  <a href="{% url 'main:codeset_detail_page' codeset.guid %}">Ochich</a>
+</li>
+
+{% endfor %}
+
+
